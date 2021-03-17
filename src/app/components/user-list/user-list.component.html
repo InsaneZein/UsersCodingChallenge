@@ -1,0 +1,18 @@
+<div class="right" *ngIf="users">
+
+    <mat-list>
+        <div mat-subheader>Users</div>
+        <mat-list-item *ngFor="let user of users | async">
+          <div mat-line>
+            <button mat-button (click)="goToUserDetails(user.id)">
+              {{ user.name }}
+            </button>
+          </div>
+        </mat-list-item>
+      </mat-list>
+
+      <button mat-button (click)="createUser()">
+        Create New User
+      </button>
+
+  </div>

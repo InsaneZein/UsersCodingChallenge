@@ -1,0 +1,171 @@
+<form [formGroup]="userForm" class="example-form" (ngSubmit)="onSubmit()">
+
+    <h2>Create User</h2>
+  
+      
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input 
+          matInput
+          formControlName="name"
+          type="text"
+          required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>username</mat-label>
+        <input 
+          matInput
+          formControlName="username"
+          type="text"
+          required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Id</mat-label>
+        <input 
+          matInput
+          formControlName="id"
+          type="text"
+          required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input 
+          matInput
+          formControlName="email"
+          type="text"
+          required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input 
+          matInput
+          formControlName="phone"
+          type="text"
+          required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Website</mat-label>
+        <input 
+          matInput
+          formControlName="website"
+          type="text"
+          required>
+      </mat-form-field>
+
+      <div formGroupName="address">
+        <h3>Address</h3>
+        <mat-form-field appearance="fill">
+            <mat-label>Street</mat-label>
+            <input 
+            matInput
+            formControlName="street"
+            type="text"
+            required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Suite</mat-label>
+            <input 
+            matInput
+            formControlName="suite"
+            type="text"
+            required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input 
+            matInput
+            formControlName="city"
+            type="text"
+            required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Zipcode</mat-label>
+            <input 
+            matInput
+            formControlName="zipcode"
+            type="text"
+            required>
+        </mat-form-field>
+
+        <div formGroupName="geo">
+            <h4>Geo Location</h4>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Latitude</mat-label>
+                <input 
+                matInput
+                formControlName="lat"
+                type="text"
+                required>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Longitude</mat-label>
+                <input 
+                matInput
+                formControlName="lng"
+                type="text"
+                required>
+            </mat-form-field>
+         </div>
+      </div>
+
+      <div formGroupName="company">
+        <h3>Company</h3>
+        <mat-form-field appearance="fill">
+            <mat-label>Company Name</mat-label>
+            <input 
+            matInput
+            formControlName="name"
+            type="text"
+            required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Company Name</mat-label>
+            <input 
+            matInput
+            formControlName="catchPhrase"
+            type="text"
+            required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>BS</mat-label>
+            <input 
+            matInput
+            formControlName="bs"
+            type="text"
+            required>
+        </mat-form-field>
+      </div>
+
+      
+      <button mat-flat-button
+        color="primary"
+        type="submit" 
+        [disabled]="!userForm.valid"> 
+        Submit
+      </button>
+            
+  </form>
+
+
+  <div class="right" *ngIf="users">
+
+    <h3>Users</h3>
+    <ul>
+      <li *ngFor="let user of users | async">
+        {{ user.name }}
+      </li>
+    </ul>
+  
+  </div>
